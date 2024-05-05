@@ -955,6 +955,25 @@ video {
   border-color: rgb(51 49 255 / var(--tw-border-opacity));
 }
 
+.cloud-1 {
+  position: fixed;
+  left: -350px;
+  top: 200px;
+  z-index: -1;
+}
+.cloud-2 {
+  position: fixed;
+  right: -195px;
+  top: 440px;
+  z-index: -1;
+}
+.cloud-3 {
+  position: fixed;
+  left: -10px;
+  bottom: 0;
+  z-index: -1;
+}
+
 .connect {
   padding: 80px 4rem 0;
 }
@@ -969,7 +988,7 @@ video {
 }
 
 .pinner {
-  background: url(./pinner.png) no-repeat;
+  background: url(./pinner.svg) no-repeat;
   position: absolute;
   width: 457px;
   height: 107px;
@@ -1046,4 +1065,117 @@ a.button {
 .leaderboard {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+@media (max-width: 1200px) {
+  .main-table {
+    width: 900px;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-table {
+    width: 600px;
+  }
+  
+  .connect {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .connect__title {
+    font-size: 3.75rem;
+  }
+
+  a.button {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .about-text {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-table {
+    width: 95%;
+  }
+    
+  .connect {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  a.button {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .pinner {
+    background: url(./pinner-small.svg) no-repeat;
+    width: 278px;
+    height: 76px;
+    top: 85px;
+  }
+
+  .about-text {
+    padding-top: 2.5rem;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .title-lg {
+    font-size: 40px;
+    line-height: 36px;
+  }
+
+  .connect {
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .connect__title {
+    font-size: 2.75rem;
+    line-height: 3rem;
+  }
+
+  a.button {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .about-text {
+    padding-top: 1.25rem;
+  }
+
+  .about-text__description {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .leaderboard {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-table {
+    width: 97%;
+  }
+
+  a.button {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

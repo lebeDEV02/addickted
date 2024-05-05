@@ -27,7 +27,7 @@ function Main() {
   );
 
   return (
-    <div className="w-full flex flex-col items-center justify-start px-9">
+    <div className="w-full flex flex-col items-center justify-start px-9 main">
       <div className="w-full flex flex-col gap-8 items-center">
         <div className="flex flex-col w-full justify-center items-center pt-20 pb-8 px-12 about-text">
           <h1 className="title-lg">
