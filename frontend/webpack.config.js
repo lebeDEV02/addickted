@@ -39,6 +39,7 @@ module.exports = {
     allowedHosts: "all",
     static: {
       directory: path.join(__dirname, 'dist')
-    }
+    },
+    historyApiFallback: true,
   }
 };

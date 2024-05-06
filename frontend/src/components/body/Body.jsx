@@ -1,26 +1,42 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Routes,
+  Route,
+  Router,
+} from "react-router-dom";
 import Main from "./Main";
 import Connect from "./Connect";
-import { backendAuth } from "../../hooks/backend-auth";
 import { BackendTokenContext } from "../../hooks/BackendTokenContext";
-function Body() {
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const [termsAccepted, setTermsAccepted] = useState(false);
+function Body({ activate }) {
+  const [authCompleted, setAuthCompleted] = useState(
+    localStorage.getItem("authCompleted")
+  );
   const [token, setToken] = useState(null);
-  const [authCompleted, setAuthCompleted] = useState(localStorage.getItem('authCompleted'));
 
   return (
     <BackendTokenContext.Provider value={{ token, setToken }}>
       <main className="w-full h-full flex overflow-hidden">
         <div className="w-full">
           <div className="pinner"></div>
-          <div className={`main-table ${authCompleted ? "FULL" : "large"}`}>
-            <div className={`main-table__inner flex flex-col items-center overflow-y-scroll ${authCompleted ? "FULL" : "large"}`}>
-              {!authCompleted && <Connect authCompleted={authCompleted} setAuthCompleted={setAuthCompleted} />}
-              {authCompleted && <Main></Main>}
+          <div className={`main-table ${authCompleted ? "full" : "large"}`}>
+            <img class="cloud-1" src="./cloud-1.png"></img>
+            <img class="cloud-2" src="./cloud-2.png"></img>
+            <img class="cloud-3" src="./cloud-3.png"></img>
+            <div
+              className={`main-table__inner flex flex-col items-center overflow-y-scroll ${
+                authCompleted ? "full" : "large"
+              }`}
+            >
+              {activate === "leaderboard" && <Main />}
+              {activate === "connect" && (
+                <Connect
+                  authCompleted={authCompleted}
+                  setAuthCompleted={setAuthCompleted}
+                />
+              )}
             </div>
           </div>
         </div>

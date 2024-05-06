@@ -1,18 +1,15 @@
 import {Account, ConnectAdditionalRequest, TonProofItemReplySuccess} from "@tonconnect/ui";
 
 class BackendAuth {
-    baseURL = 'http://localhost:8080';
+    baseURL = 'https://api-leaderboard.addickted.xyz';
 
     async generatePayload() {
         try {
-            console.log(`${this.baseURL}/wallet/auth/generate`);
-
             const response = await (
                 await fetch(`${this.baseURL}/wallet/auth/generate`, {
                     method: 'GET'
                 })
             ).json();
-            console.log(response)
             return { tonProof: response.payload };
         } catch (e) {
             console.error(e);
