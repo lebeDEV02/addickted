@@ -1,11 +1,4 @@
 import React, { useState } from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Routes,
-  Route,
-  Router,
-} from "react-router-dom";
 import Main from "./Main";
 import Connect from "./Connect";
 import { BackendTokenContext } from "../../hooks/BackendTokenContext";
@@ -30,7 +23,8 @@ function Body({ activate }) {
                 activate === "leaderboard" ? "full" : "large"
               }`}
             >
-              {activate === "leaderboard" && <Main />}
+              {activate === "leaderboard" && <Main authCompleted={authCompleted}
+                  setAuthCompleted={setAuthCompleted} />}
               {activate === "connect" && (
                 <Connect
                   authCompleted={authCompleted}

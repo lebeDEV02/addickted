@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
-function Main() {
+function Main({ authCompleted, setAuthCompleted, ...props }) {
   const [leaderboard, setLeaderboard] = useState(null);
   const [filteredLeaderboard, setFilteredLeaderboard] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,6 +25,45 @@ function Main() {
     );
     setFilteredLeaderboard(filteredData);
   }, [searchQuery, leaderboard]);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = localStorage.getItem('dapp-auth-token');
+    const oauthToken = urlParams.get("oauth_token");
+    const oauthVerifier = urlParams.get("oauth_verifier");
+
+    if (!authCompleted && code && oauthToken && oauthVerifier) {
+      exchangeCodeForToken(code, { oauth_token: oauthToken, oauth_verifier: oauthVerifier })
+        .then((tokenData) => {
+          localStorage.setItem('authCompleted', true);
+          setAuthCompleted(true);
+        })
+        .catch((error) => {
+          console.error("Error exchanging code for token:", error);
+        });
+    }
+  }, [authCompleted, setAuthCompleted]);
+
+
+  const exchangeCodeForToken = async (code, bodyData) => {
+    try {
+      const response = await fetch("https://api-leaderboard.addickted.xyz/go-api/oauth2/twitter/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `${code}`
+        },
+        body: JSON.stringify(bodyData)
+      });
+      if (!response.ok) {
+        throw new Error("Failed to exchange code for token");
+      }
+      const tokenData = await response.json();
+      return tokenData;
+    } catch (error) {
+      throw error;
+    }
+  };
 
   const fetchLeaderboardData = () => {
     fetch("https://api-leaderboard.addickted.xyz/leaderboard")
