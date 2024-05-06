@@ -1027,6 +1027,10 @@ video {
   color: #6C6C6C;
 }
 
+.main {
+  padding-bottom: 1rem;
+}
+
 .pinner {
   background: url(./pinner.svg) no-repeat;
   position: absolute;

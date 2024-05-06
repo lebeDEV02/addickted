@@ -1,7 +1,7 @@
 import {Account, ConnectAdditionalRequest, TonProofItemReplySuccess} from "@tonconnect/ui";
 
 class BackendAuth {
-    baseURL = 'https://api-leaderboard.addickted.xyz';
+    baseURL = 'https://api-leaderboard.addickted.xyz/go-api';
 
     async generatePayload() {
         try {

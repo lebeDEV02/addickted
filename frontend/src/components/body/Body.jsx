@@ -21,13 +21,13 @@ function Body({ activate }) {
       <main className="w-full h-full flex overflow-hidden">
         <div className="w-full">
           <div className="pinner"></div>
-          <div className={`main-table ${authCompleted ? "full" : "large"}`}>
+          <div className={`main-table ${activate === "leaderboard" ? "full" : "large"}`}>
             <img class="cloud-1" src="./cloud-1.png"></img>
             <img class="cloud-2" src="./cloud-2.png"></img>
             <img class="cloud-3" src="./cloud-3.png"></img>
             <div
               className={`main-table__inner flex flex-col items-center overflow-y-scroll ${
-                authCompleted ? "full" : "large"
+                activate === "leaderboard" ? "full" : "large"
               }`}
             >
               {activate === "leaderboard" && <Main />}
