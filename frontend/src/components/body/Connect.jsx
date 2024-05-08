@@ -3,28 +3,27 @@ import { useTonConnectUI, useTonAddress } from "@tonconnect/ui-react";
 import { useBackendAuth } from "../../hooks/useBackendAuth";
 
 function Connect({ authCompleted, setAuthCompleted, ...props }) {
-    const [tonConnectUi] = useTonConnectUI();
-    const userFriendlyAddress = useTonAddress();
-  
-    useBackendAuth();
-  
+  const [tonConnectUi] = useTonConnectUI();
+  const userFriendlyAddress = useTonAddress();
 
-    const handleTwitterAuthClick = async () => {
-      try {
-        const response = await fetch("https://api-leaderboard.addickted.xyz/go-api/oauth2/twitter/callback");
-        const data = await response.json();
-        const redirectUrl = data.url;
-        window.location.href = redirectUrl;
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+  useBackendAuth();
+
+  const handleTwitterAuthClick = async () => {
+    try {
+      const response = await fetch(
+        "https://api-leaderboard.addickted.xyz/go-api/oauth2/twitter/callback"
+      );
+      const data = await response.json();
+      const redirectUrl = data.url;
+      window.location.href = redirectUrl;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <div className="w-full flex flex-col justify-start text-black connect">
       <div className="flex flex-col w-full justify-center items-center">
-        <h1 className="text-xl connect__title">
-          heal yourself with $DICK
-        </h1>
+        <h1 className="text-xl connect__title">heal yourself with $DICK</h1>
         <div className="connect__description">
           <div className="relative max-w-fit">
             <p className="">
@@ -35,7 +34,7 @@ function Connect({ authCompleted, setAuthCompleted, ...props }) {
         </div>
       </div>
       <div className="mt-8 mx-4 text-md lg:text-lg flex">
-        <p className="verify">Verify Your Eligibility</p>
+        <p className="verify">Verify your eligibility</p>
       </div>
       <div className="mt-8">
         <div className="flex flex-col gap-8">

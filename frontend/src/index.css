@@ -71,17 +71,6 @@ a.button {
     text-align: center;
 }
 
-.header-button {
-  border: none;
-  border-radius: 38px;
-  color: #fff;
-  cursor: pointer;
-  padding: 20px 160px;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 
 .connect {
     padding: 80px 4rem 0;

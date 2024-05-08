@@ -5,7 +5,7 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
   const [leaderboard, setLeaderboard] = useState(null);
   const [filteredLeaderboard, setFilteredLeaderboard] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [accountData, setAccountData] = useState(null);
+  const [accountData, setAccountData] = useState(undefined);
 
   useEffect(() => {
     fetchLeaderboardData();
@@ -85,6 +85,10 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
     })
       .then((response) => response.json())
       .then((data) => {
+        if (data.tweets_count === null) {
+            setAccountData(null);
+            return;
+        }
         setAccountData({
           twitter_username: data.twitter_username,
           tweets_count: data.tweets_count,
@@ -109,6 +113,12 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
             </div>
           </div>
         </div>
+        {accountData === null && (
+            <div className="w-full">
+                <p className="user-stats">Your stats:</p>
+            <div>You need to connect your Twitter account</div>
+            </div>
+        )}
         {accountData && (
           <div className="w-full">
             <p className="user-stats">Your stats:</p>
@@ -129,9 +139,11 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
               <tbody>
                 <tr>
                   {Object.values(accountData).map((value, columnIndex) => (
-                    <td
+                      <td
                       key={columnIndex}
-                      className={`px-1 lg:px-4 pt-4 text-left w-${"1/3"}`}
+                      className={`px-1 lg:px-4 pt-4 text-left w-${
+                        columnIndex === 0 ? "3/5" : "1/5"
+                      }`}
                     >
                       {value}
                     </td>
@@ -144,7 +156,7 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
         <div className="search-input w-2/3 text-sm sm:text-xs md:text-sm lg:text-base xl:text-sm 2xl:text-base uppercase text-nowrap lh-lg text-center">
           <input
             type="text"
-            className="w-full px-2 bg-transparent outline-none"
+            className="w-full px-2 bg-transparent outline-none search-input__bar"
             placeholder="Search by handle"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

@@ -676,6 +676,14 @@ video {
   width: 66.666667%;
 }
 
+.w-3\/5 {
+  width: 60%;
+}
+
+.w-1\/5 {
+  width: 20%;
+}
+
 .w-full {
   width: 100%;
 }
@@ -927,6 +935,8 @@ video {
   width: 200px;
   right: 1rem;
   top: 1rem;
+  font-family: "Geist";
+  font-weight: 500;
 }
 
 .duration-500 {
@@ -960,6 +970,10 @@ video {
 
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.overflow-y-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .absolute {
@@ -1067,7 +1081,7 @@ video {
 
 .main-table__inner.full {
   height: auto;
-  max-height: 90vh;
+  max-height: 94vh;
 }
 
 a.button {
@@ -1087,6 +1101,15 @@ a.button {
   padding: 16px 24px;
   max-width: 832px;
   width: 100%;
+}
+
+.search-input__bar::placeholder {
+  font-family: "Geist";
+  opacity: 1;
+  font-weight: 500;
+  text-transform: initial;
+  font-size: 1rem;
+  line-height: 2rem;
 }
 
 .title-lg {

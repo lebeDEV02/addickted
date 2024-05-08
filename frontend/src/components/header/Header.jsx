@@ -1,14 +1,15 @@
 import React from 'react';
-import { TonConnectButton, useTonAddress } from '@tonconnect/ui-react';
 import { Link } from 'react-router-dom';
 function Header() {
-  const userFriendlyAddress = useTonAddress();
-  const rawAddress = useTonAddress(false);
+  const authCompleted = localStorage.getItem('authCompleted');
+
   return (
     <>
-    <Link to={location.href.includes('connect') ? '/leaderboard' : '/connect'} className='header-button background-black'>
-      {location.href.includes('connect') ? 'Leaderboard' : 'Connect'}
-    </Link>
+      {!authCompleted ? (
+        <Link to={location.href.includes('connect') ? '/leaderboard' : '/connect'} className='header-button background-black'>
+          {location.href.includes('connect') ? 'Leaderboard' : 'Connect'}
+        </Link>
+      ) : null}
     </>
   );
 }

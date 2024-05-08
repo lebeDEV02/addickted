@@ -34,7 +34,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.[contenthash].js' // Random name for JS file
+    filename: 'bundle.js' // Random name for JS file
   },
   plugins: [
     new MiniCssExtractPlugin({
