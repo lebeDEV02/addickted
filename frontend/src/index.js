@@ -3,12 +3,9 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/header/Header";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import Body from "./components/body/Body";
-import Footer from "./components/footer/Footer";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
 } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("react-target"));
@@ -22,7 +19,6 @@ const router = createBrowserRouter([
       <div className="flex flex-col w-screen h-screen">
         <Header />
         <Body activate="connect" />
-        <Footer />
       </div>
     </TonConnectUIProvider>
     ),
@@ -34,7 +30,6 @@ const router = createBrowserRouter([
       <div className="flex flex-col w-screen h-screen">
         <Header />
         <Body activate="leaderboard" />
-        <Footer />
       </div>
     </TonConnectUIProvider>
     ),
@@ -46,7 +41,6 @@ const router = createBrowserRouter([
       <div className="flex flex-col w-screen h-screen">
         <Header />
         <Body activate="leaderboard" />
-        <Footer />
       </div>
     </TonConnectUIProvider>
     ),

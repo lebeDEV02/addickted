@@ -103,13 +103,17 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
         <Outlet/>
       <div className="w-full flex flex-col gap-8 items-center">
         <div className="flex flex-col w-full justify-center items-center pt-20 pb-8 px-12 about-text">
-          <h1 className="title-lg">airdrop 1</h1>
-          <div className="mt-4 text-xs lg:text-lg text-center">
+          <h1 className="title-lg about-text__title">THE BIG DICK LEAGUE: TWITTER</h1>
+          <div className="mt-4 text-xs lg:text-lg text-center about-text__main">
             <div className="relative max-w-fit">
-              <p className="about-text__description">
-                Create content about DICK. More views equals more $DICK.
-                Leaderboard is updated every 20 min.
-              </p>
+              <ul className="about-text__description">
+                <ol>1. Tweet something viral about $DICK on X (ex-Twitter).</ol>
+                <ol>2. Get hyped and earn views.</ol>
+                <ol>3. Boost your rank, snag prizes and score sweet bonuses.</ol>
+              </ul>
+              <a className="about-text__rules" href="https://t.me/addicktedton" target="_blank">
+                Rules
+              </a>
             </div>
           </div>
         </div>

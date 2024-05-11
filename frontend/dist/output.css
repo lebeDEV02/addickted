@@ -63,8 +63,8 @@ html,
 */
 
 @font-face {
-  font-family: 'Geist';
-  src: url('./GeistVF.woff2') format('woff2');
+  font-family: "Geist";
+  src: url("./GeistVF.woff2") format("woff2");
   /* Add other font properties here if needed */
 }
 
@@ -684,6 +684,10 @@ video {
   width: 20%;
 }
 
+.w-2\/5 {
+  width: 40%;
+}
+
 .w-full {
   width: 100%;
 }
@@ -922,7 +926,6 @@ video {
   transition-duration: 150ms;
 }
 
-
 .header-button {
   border: none;
   border-radius: 38px;
@@ -1018,7 +1021,9 @@ video {
 }
 
 .connect {
-  padding: 80px 4rem 0;
+  max-height: 82vh;
+  height: auto;
+  padding: 80px 4rem 40px;
 }
 
 .connect__title {
@@ -1038,7 +1043,7 @@ video {
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
-  color: #6C6C6C;
+  color: #6c6c6c;
 }
 
 .main {
@@ -1072,6 +1077,11 @@ video {
   height: 100%;
 }
 
+.main-table.large {
+  height: 100%;
+  max-height: 840px;
+}
+
 .main-table__inner {
   border: 7px solid #181818;
   background-color: #ffffff;
@@ -1081,7 +1091,7 @@ video {
 
 .main-table__inner.full {
   height: auto;
-  max-height: 94vh;
+  max-height: 86vh;
 }
 
 a.button {
@@ -1121,7 +1131,11 @@ a.button {
   line-height: 72px;
 }
 
-.about-text {
+.about-text__title {
+  width: 770px;
+}
+
+.about-text__main {
   max-width: 600px;
 }
 
@@ -1130,6 +1144,15 @@ a.button {
   line-height: 32px;
   font-family: "Geist";
   font-weight: 600;
+  text-align: center;
+}
+
+.about-text__rules {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  display: inline-block;
+  text-decoration: underline;
 }
 
 .leaderboard {
@@ -1147,10 +1170,15 @@ a.button {
   .main-table {
     width: 600px;
   }
-  
+
+  .about-text__title {
+    width: auto;
+    font-size: 36px;
+    line-height: 48px;
+  }
+
   .connect {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 40px;
   }
 
   .connect__title {
@@ -1175,14 +1203,20 @@ a.button {
 }
 
 @media (max-width: 600px) {
+  .main {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 100px;
+  }
   .main-table {
     width: 95%;
   }
-    
+
   .connect {
     padding-top: 30px;
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 100px;
   }
 
   a.button {
@@ -1202,10 +1236,12 @@ a.button {
   }
 }
 
-
 @media (max-width: 500px) {
+  .w-2\/5 {
+    width: 20%;
+  }
   .title-lg {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 36px;
   }
 
@@ -1235,7 +1271,7 @@ a.button {
   }
 
   .leaderboard {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 }
 

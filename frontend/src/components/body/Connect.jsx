@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTonConnectUI, useTonAddress } from "@tonconnect/ui-react";
 import { useBackendAuth } from "../../hooks/useBackendAuth";
 
@@ -21,7 +21,7 @@ function Connect({ authCompleted, setAuthCompleted, ...props }) {
     }
   };
   return (
-    <div className="w-full flex flex-col justify-start text-black connect">
+    <div className="w-full flex flex-col justify-start text-black overflow-y-scroll connect">
       <div className="flex flex-col w-full justify-center items-center">
         <h1 className="text-xl connect__title">heal yourself with $DICK</h1>
         <div className="connect__description">

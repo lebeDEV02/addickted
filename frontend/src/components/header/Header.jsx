@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 function Header() {
-  const authCompleted = localStorage.getItem('authCompleted');
+  const [authCompleted, setAuthCompleted] = useState(localStorage.getItem('authCompleted'));
 
   return (
     <>
