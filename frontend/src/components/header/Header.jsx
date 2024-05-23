@@ -21,10 +21,6 @@ function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log('authCompleted changed:', authCompleted);
-  }, [authCompleted]);
-
   const handleDisconnect = () => {
     tonConnectUi.disconnect();
     navigate("/connect");
