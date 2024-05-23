@@ -124,7 +124,7 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
             </div>
         )}
         {accountData && (
-          <div className="w-full">
+          <div className="w-full stats">
             <p className="user-stats">Your stats:</p>
             <table className="w-full leaderboard">
               <thead>

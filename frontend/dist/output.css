@@ -909,6 +909,9 @@ video {
   opacity: 0.7;
 }
 
+.opacity-80 {
+  opacity: 0.8;
+}
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1021,7 +1024,7 @@ video {
 }
 
 .connect {
-  max-height: 82vh;
+  max-height: 100vh;
   height: auto;
   padding: 80px 4rem 40px;
 }
@@ -1049,6 +1052,7 @@ video {
 .main {
   padding-bottom: 1rem;
 }
+
 
 .pinner {
   background: url(./pinner.svg) no-repeat;
@@ -1091,7 +1095,7 @@ video {
 
 .main-table__inner.full {
   height: auto;
-  max-height: 86vh;
+  max-height: 100vh;
 }
 
 a.button {
@@ -1147,6 +1151,13 @@ a.button {
   text-align: center;
 }
 
+.stats {
+  position: sticky;
+  top: 20px;
+  background: white;
+  z-index: 1;
+}
+
 .about-text__rules {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1158,6 +1169,10 @@ a.button {
 .leaderboard {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+a.green-color {
+  background-color: #00c600;
 }
 
 @media (max-width: 1200px) {

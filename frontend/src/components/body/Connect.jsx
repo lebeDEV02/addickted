@@ -45,7 +45,7 @@ function Connect({ authCompleted, setAuthCompleted, ...props }) {
                 <p>CONNECT WALLET</p>
                 <a
                   className={`button flex background-black justify-center w-full ${
-                    userFriendlyAddress ? "pointer-events-none opacity-70" : ""
+                    userFriendlyAddress ? "pointer-events-none opacity-80 green-color" : ""
                   }`}
                   onClick={() => {
                     tonConnectUi.openModal();
