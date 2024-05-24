@@ -11,14 +11,20 @@ function Header() {
   // Effect to handle custom storage event
   useEffect(() => {
     const handleStorageChange = () => {
-      console.log('auth completed')
       setAuthCompleted(localStorage.getItem('authCompleted') === 'true');
     };
 
+    const handleAuthCompleted = () => {
+      setAuthCompleted(true);
+    };
+
     window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('authCompleted', handleAuthCompleted);
+
 
     return () => {
       window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('authCompleted', handleAuthCompleted);
     };
   }, []);
 

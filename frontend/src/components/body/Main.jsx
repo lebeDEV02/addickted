@@ -37,7 +37,7 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
         .then((tokenData) => {
           localStorage.setItem('authCompleted', true);
           setAuthCompleted(true);
-          window.dispatchEvent(new Event('storage'));
+          window.dispatchEvent(new Event('authCompleted')); 
         })
         .catch((error) => {
           console.error("Error exchanging code for token:", error);
