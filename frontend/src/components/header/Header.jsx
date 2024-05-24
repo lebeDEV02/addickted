@@ -5,17 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [authCompleted, setAuthCompleted] = useState(localStorage.getItem('authCompleted'));
+  const [explicitCompletedAuth, setExplicitCompletedAuth] = useState(false);
+
   const [tonConnectUi] = useTonConnectUI();
   const navigate = useNavigate();
 
-  // Effect to handle custom storage event
   useEffect(() => {
     const handleStorageChange = () => {
       setAuthCompleted(localStorage.getItem('authCompleted') === 'true');
     };
 
     const handleAuthCompleted = () => {
-      setAuthCompleted(true);
+      setExplicitCompletedAuth(true);
     };
 
     window.addEventListener('storage', handleStorageChange);
@@ -32,12 +33,13 @@ function Header() {
     tonConnectUi.disconnect();
     navigate("/connect");
     localStorage.removeItem('authCompleted');
+    setExplicitCompletedAuth(false);
     window.dispatchEvent(new Event('storage')); // Dispatch custom event
   };
 
   return (
     <>
-      {!authCompleted ? (
+      {(!authCompleted && !explicitCompletedAuth) ? (
         <Link to={location.href.includes('connect') ? '/leaderboard' : '/connect'} className='header-button background-black'>
           {location.href.includes('connect') ? 'Leaderboard' : 'Connect'}
         </Link>
