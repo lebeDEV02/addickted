@@ -11,6 +11,7 @@ function Header() {
   // Effect to handle custom storage event
   useEffect(() => {
     const handleStorageChange = () => {
+      console.log('auth completed')
       setAuthCompleted(localStorage.getItem('authCompleted') === 'true');
     };
 
