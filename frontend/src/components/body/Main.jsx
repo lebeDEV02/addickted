@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { Outlet } from "react-router-dom";
-
+import FAQSection from "./FAQSection";
 function Main({ authCompleted, setAuthCompleted, ...props }) {
   const [leaderboard, setLeaderboard] = useState(null);
   const [filteredLeaderboard, setFilteredLeaderboard] = useState(null);
@@ -112,7 +112,7 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
                 <ol>2. Get hyped and earn views.</ol>
                 <ol>3. Boost your rank, snag prizes and score sweet bonuses.</ol>
               </ul>
-              <a className="about-text__rules" href="https://t.me/addicktedton" target="_blank">
+              <a className="about-text__rules" href="https://addickted.notion.site/THE-BIG-DICK-LEAGUE-TWITTER-d532d6f84e4740e0a81ee9dd9e268b35?pvs=4" target="_blank">
                 Rules
               </a>
             </div>
@@ -207,6 +207,7 @@ function Main({ authCompleted, setAuthCompleted, ...props }) {
             </tbody>
           </table>
         </div>
+        <FAQSection />
       </div>
     </div>
   );
